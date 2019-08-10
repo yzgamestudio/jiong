@@ -64,5 +64,9 @@ cc.Class({
 
     },
 
+    loadHomeScene () {
+        cc.director.loadScene('home');
+    }
+
     // update (dt) {},
 });
