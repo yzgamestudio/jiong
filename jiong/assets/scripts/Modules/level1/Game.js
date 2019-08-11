@@ -34,7 +34,7 @@ cc.Class({
         },
         alert: {
             default: null,
-            type: cc.Node
+            type: cc.Prefab
         },
 
     },
@@ -42,7 +42,6 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.alert.opacity = 0;
         this.ball1.getComponent('Ball1').game = this;
         this.ball2.getComponent('Ball2').game = this;
         this.ball3.getComponent('Ball3').game = this;
@@ -57,7 +56,12 @@ cc.Class({
     },
 
     createAlert: function () {
-        this.alert.opacity = 255;
+        let alertNode = cc.instantiate(this.alert);
+        this.node.addChild(alertNode);
+        let alertComponent = alertNode.getComponent('Alert');
+        alertComponent.cotent = '原来是左眼啊';
+        alertComponent.nextLevelName = 'level2';
+        alertComponent.updateContent();
     },
 
     start () {
@@ -65,6 +69,7 @@ cc.Class({
     },
 
     loadHomeScene () {
+        let alertComponent = this.alert.getComponent('Alert');
         cc.director.loadScene('home');
     }
 

@@ -16,7 +16,12 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
-        cotent: ''
+        cotent: '',
+        contentLabel: {
+            default: null,
+            type: cc.Label
+        },
+        nextLevelName: ''
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -39,9 +44,15 @@ cc.Class({
 
     },
 
-    jumpNextScene () {
-        cc.director.loadScene("level2");
+    jumpNextScene: function () {
+        if (this.nextLevelName && this.nextLevelName.length) {
+            cc.director.loadScene(this.nextLevelName);
+        }
+    },
+
+    updateContent: function () {
+        this.contentLabel.string = this.cotent;
     }
 
-    // update (dt) {},
+
 });
