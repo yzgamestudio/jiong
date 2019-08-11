@@ -31,23 +31,19 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        //监听触摸开始事件
-        this.node.on(cc.Node.EventType.TOUCH_START, function (t) {
-            //函数体内写事件发生时的事情
-            //当触摸开始是打印以下字样
-            console.log("触摸开始");
-            this.game.createAlert('原来是左眼啊', 'level2');
-        }, this);
-        //监听作用域内触摸抬起事件
-        this.node.on(cc.Node.EventType.TOUCH_ENDED, function (t) {
-            console.log("触碰结束");
-        }, this);
-    },
+    // onLoad () {},
 
     start () {
-
+        this.persisitNode();
     },
 
-    // update (dt) {},
+    loadHome () {
+        cc.director.loadScene("home");
+    },
+
+    persisitNode () {
+        if (!this.node._persistNode) {
+            cc.game.addPersistRootNode(this.node);
+        }
+    },
 });

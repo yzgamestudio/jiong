@@ -8,23 +8,20 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-cc.Class({
-    extends: cc.Component,
 
+cc.Class({
+    extends: require("BaseLevel"),
     properties: {
         dogNode: {
             default: null,
             type: cc.Node
         },
-        alert: {
-            default: null,
-            type: cc.Prefab
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
+        this.showBackButton();
+
         this.dogVisble = true;
         this.schedule(function () {
             // 这里的 this 指向 component
@@ -44,17 +41,6 @@ cc.Class({
             this.dogNode.opacity = 255;
         }
         this.dogVisble = !this.dogVisble;
+    }
 
-    },
-
-    createAlert: function () {
-        let alertNode = cc.instantiate(this.alert);
-        this.node.addChild(alertNode);
-        let alertComponent = alertNode.getComponent('Alert');
-        alertComponent.cotent = '点击它才对';
-        alertComponent.nextLevelName = 'level3';
-        alertComponent.updateContent();
-    },
-
-    // update (dt) {},
 });

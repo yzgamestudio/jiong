@@ -9,7 +9,7 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
-    extends: cc.Component,
+    extends: require('BaseLevel'),
 
     properties: {
         ball1: {
@@ -42,35 +42,18 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+
+        this.showBackButton();
+
         this.ball1.getComponent('Ball1').game = this;
         this.ball2.getComponent('Ball2').game = this;
         this.ball3.getComponent('Ball3').game = this;
         this.eye.getComponent('Eye').game = this;
     },
 
-    createCross: function (position) {
-        let crossNode = cc.instantiate(this.crossPrefab);
-        this.node.addChild(crossNode);
-        crossNode.setPosition(position);
-        setTimeout(() => { crossNode.destroy() }, 500);
-    },
-
-    createAlert: function () {
-        let alertNode = cc.instantiate(this.alert);
-        this.node.addChild(alertNode);
-        let alertComponent = alertNode.getComponent('Alert');
-        alertComponent.cotent = '原来是左眼啊';
-        alertComponent.nextLevelName = 'level2';
-        alertComponent.updateContent();
-    },
-
     start () {
 
     },
-
-    loadHomeScene () {
-        cc.director.loadScene('home');
-    }
 
     // update (dt) {},
 });
