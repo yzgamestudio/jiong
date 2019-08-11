@@ -8,41 +8,36 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-
 cc.Class({
-    extends: require("BaseLevel"),
+    extends: cc.Component,
+
     properties: {
-        dogNode: {
-            default: null,
-            type: cc.Node
-        },
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
     },
 
     // LIFE-CYCLE CALLBACKS:
-    onLoad () {
-        this.showBackButton();
-        this.showTipButton();
 
-        this.nextLevelName = 'level3'
-        this.dogVisble = true;
-        this.schedule(function () {
-            // 这里的 this 指向 component
-            this.showOrHiddenDog();
-        }, 1.5);
+    onLoad () {
+     
     },
 
     start () {
 
     },
 
-    showOrHiddenDog: function () {
-        if (this.dogVisble) {
-            this.dogNode.opacity = 0;
-        }
-        else {
-            this.dogNode.opacity = 255;
-        }
-        this.dogVisble = !this.dogVisble;
-    }
-
+    // update (dt) {},
 });

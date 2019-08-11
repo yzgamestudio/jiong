@@ -44,6 +44,7 @@ cc.Class({
 
     },
 
+    // 这里最好回调给Game做，以后优化
     jumpNextScene: function () {
         if (this.nextLevelName && this.nextLevelName.length) {
             cc.director.loadScene(this.nextLevelName);

@@ -12,12 +12,18 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        levelButtons: {
+            default: [],
+            type: cc.Node
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        this.updateLevelButtonStatus();
         this.hideBackButton();
+        this.hideTipButton();
     },
 
     loadLevel (event, customData) {
@@ -26,17 +32,26 @@ cc.Class({
 
     },
 
-    start () {
-
-    },
-
-    onDestroy () {
-        debugger;
-    },
-
     hideBackButton () {
         let backNode = cc.find("back");
         backNode.opacity = 0;
+    },
+
+    hideTipButton () {
+        let tipsNode = cc.find("tips");
+        tipsNode.opacity = 0;
+    },
+
+    updateLevelButtonStatus () {
+        let levelManager = cc.find("Manager").getComponent("LevelManager");
+        let levelAccessable = levelManager.levelAccessable();
+        debugger;
+        this.levelButtons.forEach((value, index, array) => {
+            if (index + 1 <= levelAccessable) {
+                value.interactable = true;
+            } else {
+                value.interactable = false;
+            }
+        });
     }
-    
 });

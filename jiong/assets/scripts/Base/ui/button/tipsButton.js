@@ -8,41 +8,40 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-
 cc.Class({
-    extends: require("BaseLevel"),
+    extends: cc.Component,
+
     properties: {
-        dogNode: {
-            default: null,
-            type: cc.Node
-        },
-    },
 
-    // LIFE-CYCLE CALLBACKS:
-    onLoad () {
-        this.showBackButton();
-        this.showTipButton();
-
-        this.nextLevelName = 'level3'
-        this.dogVisble = true;
-        this.schedule(function () {
-            // 这里的 this 指向 component
-            this.showOrHiddenDog();
-        }, 1.5);
     },
 
     start () {
-
+        this.persisitNode();
+        debugger;
+        this.scaleAction();
     },
 
-    showOrHiddenDog: function () {
-        if (this.dogVisble) {
-            this.dogNode.opacity = 0;
+    // 这里最好回调给Game做，以后优化
+    loadAd () {
+        console.log('播放广告');
+    },
+
+    persisitNode () {
+        if (!this.node._persistNode) {
+            cc.game.addPersistRootNode(this.node);
         }
-        else {
-            this.dogNode.opacity = 255;
-        }
-        this.dogVisble = !this.dogVisble;
+    },
+
+    scaleAction: function () {
+        let scaleAction1 = cc.scaleTo(0.5, 0.8);
+        let scaleAction2 = cc.scaleTo(0.5, 1.2);
+        this.action = cc.repeatForever(cc.sequence(scaleAction1, scaleAction2));
+        this.node.runAction(this.action);
+    },
+
+    onDestroy: function () {
+        debugger;
+
     }
 
 });

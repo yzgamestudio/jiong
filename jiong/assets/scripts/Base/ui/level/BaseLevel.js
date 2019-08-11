@@ -24,6 +24,11 @@ let BaseLevel = cc.Class({
         backNode.opacity = 255;
     },
 
+    showTipButton () {
+        let tipNode = cc.find("tips");
+        tipNode.opacity = 255;
+    },
+
     createAlert: function (e, content) {
         let alertNode = cc.instantiate(this.alert);
         this.node.addChild(alertNode);

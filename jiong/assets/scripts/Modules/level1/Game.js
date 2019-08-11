@@ -44,6 +44,7 @@ cc.Class({
     onLoad () {
 
         this.showBackButton();
+        this.showTipButton();
 
         this.ball1.getComponent('Ball1').game = this;
         this.ball2.getComponent('Ball2').game = this;

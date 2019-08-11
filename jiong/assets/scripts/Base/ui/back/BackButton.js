@@ -37,6 +37,7 @@ cc.Class({
         this.persisitNode();
     },
 
+    //   // 这里最好回调给Game做，以后优化
     loadHome () {
         cc.director.loadScene("home");
     },
