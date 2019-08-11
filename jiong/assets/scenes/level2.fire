@@ -928,7 +928,7 @@
     "component": "",
     "_componentId": "779230AUZtFuKXOYrl2QCqT",
     "handler": "createAlert",
-    "customEventData": "\"点击它才是\""
+    "customEventData": "点击它才是"
   },
   {
     "__type__": "cc.Canvas",

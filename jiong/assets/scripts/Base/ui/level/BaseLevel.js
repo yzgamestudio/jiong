@@ -24,7 +24,7 @@ let BaseLevel = cc.Class({
         backNode.opacity = 255;
     },
 
-    createAlert: function (content) {
+    createAlert: function (e, content) {
         let alertNode = cc.instantiate(this.alert);
         this.node.addChild(alertNode);
         let alertComponent = alertNode.getComponent('Alert');

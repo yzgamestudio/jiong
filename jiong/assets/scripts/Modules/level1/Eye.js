@@ -37,7 +37,7 @@ cc.Class({
             //函数体内写事件发生时的事情
             //当触摸开始是打印以下字样
             console.log("触摸开始");
-            this.game.createAlert('原来是左眼啊', 'level2');
+            this.game.createAlert(cc.Node.EventType, '原来是左眼啊');
         }, this);
         //监听作用域内触摸抬起事件
         this.node.on(cc.Node.EventType.TOUCH_ENDED, function (t) {
