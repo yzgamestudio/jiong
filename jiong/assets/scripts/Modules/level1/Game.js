@@ -69,7 +69,6 @@ cc.Class({
     },
 
     loadHomeScene () {
-        let alertComponent = this.alert.getComponent('Alert');
         cc.director.loadScene('home');
     }
 

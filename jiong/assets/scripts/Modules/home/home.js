@@ -34,7 +34,6 @@ cc.Class({
     // onLoad () {},
 
     loadLevel (event, customData) {
-        debugger;
         let level = 'level' + customData;
         cc.director.loadScene(level);
 
