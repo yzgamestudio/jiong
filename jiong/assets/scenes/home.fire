@@ -1434,7 +1434,17 @@
       "__id__": 2
     },
     "_enabled": true,
-    "levelButtons": null,
+    "levelButtons": [
+      {
+        "__id__": 7
+      },
+      {
+        "__id__": 15
+      },
+      {
+        "__id__": 23
+      }
+    ],
     "_id": "e3RRr5TP9M4rXwSVI0RDLN"
   },
   {
