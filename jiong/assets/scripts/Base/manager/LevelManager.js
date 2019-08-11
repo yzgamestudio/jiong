@@ -12,33 +12,36 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        //监听触摸开始事件
-        this.node.on(cc.Node.EventType.TOUCH_START, function (t) {
-            //函数体内写事件发生时的事情
-            //当触摸开始是打印以下字样
-            console.log("触摸开始");
-            this.game.createCross(this.node.position);
-            this.playErrorSound();
-        }, this);
-        //监听作用域内触摸抬起事件
-        this.node.on(cc.Node.EventType.TOUCH_ENDED, function (t) {
-            console.log("触碰结束");
-        }, this);
+        this.persisitNode();
     },
 
     start () {
 
     },
 
-    playErrorSound () {
-        let audioManager = cc.find("Manager").getComponent("AudioManager");
-        audioManager.playErrorSound();
+    persisitNode () {
+        if (!this.node._persistNode) {
+            cc.game.addPersistRootNode(this.node);
+        }
     }
-
-    // update (dt) {},
 });

@@ -12,10 +12,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        errorAudio: {
-            default: null,
-            type: cc.AudioClip
-        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -40,7 +36,8 @@ cc.Class({
     },
 
     playErrorSound () {
-        cc.audioEngine.playEffect(this.errorAudio, false);
+        let audioManager = cc.find("Manager").getComponent("AudioManager");
+        audioManager.playErrorSound();
     }
 
     // update (dt) {},
