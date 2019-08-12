@@ -16,20 +16,7 @@ cc.Class({
     },
 
     start () {
-        this.persisitNode();
-        debugger;
         this.scaleAction();
-    },
-
-    // 这里最好回调给Game做，以后优化
-    loadAd () {
-        console.log('播放广告');
-    },
-
-    persisitNode () {
-        if (!this.node._persistNode) {
-            cc.game.addPersistRootNode(this.node);
-        }
     },
 
     scaleAction: function () {
@@ -37,11 +24,5 @@ cc.Class({
         let scaleAction2 = cc.scaleTo(0.5, 1.2);
         this.action = cc.repeatForever(cc.sequence(scaleAction1, scaleAction2));
         this.node.runAction(this.action);
-    },
-
-    onDestroy: function () {
-        debugger;
-
     }
-
 });

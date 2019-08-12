@@ -52,7 +52,6 @@ let BaseLevel = cc.Class({
         let backNode = cc.instantiate(this.backPrefab);
         backNode.on('click', this.loadHome, this);
         this.node.addChild(backNode);
-
     },
 
     createTips: function () {
