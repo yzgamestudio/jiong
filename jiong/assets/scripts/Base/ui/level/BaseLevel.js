@@ -45,4 +45,5 @@ let BaseLevel = cc.Class({
         setTimeout(() => { crossNode.destroy() }, 500);
     }
 
+
 });
