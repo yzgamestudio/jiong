@@ -16,17 +16,20 @@ let BaseLevel = cc.Class({
             default: null,
             type: cc.Prefab
         },
+        backPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+        tipsPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
         nextLevelName: ''
     },
 
-    showBackButton () {
-        let backNode = cc.find("back");
-        backNode.opacity = 255;
-    },
-
-    showTipButton () {
-        let tipNode = cc.find("tips");
-        tipNode.opacity = 255;
+    createBackAndTips () {
+        this.createBack();
+        this.createTips();
     },
 
     createAlert: function (e, content) {
@@ -43,6 +46,27 @@ let BaseLevel = cc.Class({
         this.node.addChild(crossNode);
         crossNode.setPosition(position);
         setTimeout(() => { crossNode.destroy() }, 500);
+    },
+
+    createBack: function () {
+        let backNode = cc.instantiate(this.backPrefab);
+        backNode.on('click', this.loadHome, this);
+        this.node.addChild(backNode);
+
+    },
+
+    createTips: function () {
+        let tipsNode = cc.instantiate(this.tipsPrefab);
+        tipsNode.on('click', this.loadAd, this);
+        this.node.addChild(tipsNode);
+    },
+
+    loadAd: function () {
+        console.log('播放广告');
+    },
+
+    loadHome: function () {
+        cc.director.loadScene("home");
     }
 
 

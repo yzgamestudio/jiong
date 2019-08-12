@@ -20,9 +20,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
-        this.showBackButton();
-        this.showTipButton();
-
+        this.createBackAndTips();
         this.nextLevelName = 'level3'
         this.dogVisble = true;
         this.schedule(function () {

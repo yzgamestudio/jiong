@@ -22,24 +22,11 @@ cc.Class({
 
     onLoad () {
         this.updateLevelButtonStatus();
-        this.hideBackButton();
-        this.hideTipButton();
     },
 
     loadLevel (event, customData) {
         let level = 'level' + customData;
         cc.director.loadScene(level);
-
-    },
-
-    hideBackButton () {
-        let backNode = cc.find("back");
-        backNode.opacity = 0;
-    },
-
-    hideTipButton () {
-        let tipsNode = cc.find("tips");
-        tipsNode.opacity = 0;
     },
 
     updateLevelButtonStatus () {

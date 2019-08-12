@@ -42,9 +42,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-
-        this.showBackButton();
-        this.showTipButton();
+        this.createBackAndTips();
 
         this.ball1.getComponent('Ball1').game = this;
         this.ball2.getComponent('Ball2').game = this;
