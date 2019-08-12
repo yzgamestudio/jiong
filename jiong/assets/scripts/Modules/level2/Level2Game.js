@@ -10,7 +10,7 @@
 
 
 cc.Class({
-    extends: require("BaseLevel"),
+    extends: require("BaseLevelGame"),
     properties: {
         dogNode: {
             default: null,

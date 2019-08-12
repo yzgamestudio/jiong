@@ -31,7 +31,7 @@ let BaseLevel = cc.Class({
         this.createBack();
         this.createTips();
     },
-
+    
     createAlert: function (e, content) {
         let alertNode = cc.instantiate(this.alert);
         this.node.addChild(alertNode);
