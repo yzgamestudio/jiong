@@ -9,22 +9,42 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
-    extends: require('BaseLevelGame'),
+    extends: cc.Component,
+
     properties: {
+
 
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.createBackAndTips();
-
-
+        this.listenTouch();
     },
 
     start () {
 
     },
 
-    // update (dt) {},
+    listenTouch: function () {
+        this.node.on(cc.Node.EventType.TOUCH_START, function () {
+            this.isTouch = true;
+        }, this);
+
+        this.node.on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+            if (this.isTouch) {
+                this.movePosition(event);
+            }
+        }, this);
+        this.node.on(cc.Node.EventType.TOUCH_END, function (t) {
+            this.isTouch = false;
+        }, this);
+    },
+
+    movePosition: function (event) {
+        let delta = event.getDelta();
+        this.node.x = this.node.x + delta.x;
+        this.node.y = this.node.y + delta.y;
+    }
+
 });
