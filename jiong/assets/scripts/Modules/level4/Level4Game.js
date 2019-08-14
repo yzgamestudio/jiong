@@ -12,46 +12,45 @@ cc.Class({
     extends: require('BaseLevelGame'),
 
     properties: {
-        ball1: {
+        minus: {
             default: null,
             type: cc.Node,
         },
-        ball2: {
+        plus: {
             default: null,
             type: cc.Node,
         },
-        ball3: {
+        carNum: {
             default: null,
-            type: cc.Node,
-        },
-        eye: {
-            default: null,
-            type: cc.Node,
-        },
-        crossPrefab: {
-            default: null,
-            type: cc.Prefab
-        },
-        alert: {
-            default: null,
-            type: cc.Prefab
-        },
-
+            type: cc.Node
+        }
     },
 
-    // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         this.createBackAndTips();
 
-        this.ball1.getComponent('Ball1').game = this;
-        this.ball2.getComponent('Ball2').game = this;
-        this.ball3.getComponent('Ball3').game = this;
-        this.eye.getComponent('Eye').game = this;
     },
 
-    start () {
-
+    plusCarNum () {
+        let label = this.carNum.getComponent("cc.Label");
+        label.string = String(parseInt(label.string) + 1);
+        if (parseInt(label.string) > 100) {
+            label.string = '100';
+        }
+        if (parseInt(label.string) === 87) {
+            this.createAlert(null, '原来要倒过来看啊');
+        }
     },
 
+    minusNum () {
+        let label = this.carNum.getComponent("cc.Label");
+        label.string = parseInt(label.string) - 1;
+        if (parseInt(label.string) < 0) {
+            label.string = '0';
+        }
+        if (parseInt(label.string) === 87) {
+            this.createAlert(null, '原来要倒过来看啊');
+        }
+    }
 });

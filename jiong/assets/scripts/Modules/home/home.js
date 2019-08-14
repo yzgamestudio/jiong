@@ -32,7 +32,6 @@ cc.Class({
     updateLevelButtonStatus () {
         let levelManager = cc.find("Manager").getComponent("LevelManager");
         let levelAccessable = levelManager.levelAccessable();
-        debugger;
         this.levelButtons.forEach((value, index, array) => {
             if (index + 1 <= levelAccessable) {
                 value.interactable = true;

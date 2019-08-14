@@ -11,20 +11,34 @@
 cc.Class({
     extends: require('BaseLevelGame'),
     properties: {
-
+        dogNode: {
+            default: [],
+            type: cc.Node
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         this.createBackAndTips();
-
-
+        this.saveDogPosition();
     },
 
     start () {
 
     },
 
-    // update (dt) {},
+    saveDogPosition () {
+        let position = [];
+        this.dogNode.forEach((value) => {
+            position.push(value.position);
+        });
+        this.position = position;
+    },
+
+    resetPosition () {
+        this.dogNode.forEach((value, index) => {
+            value.position = this.position[index];
+        });
+    }
 });
