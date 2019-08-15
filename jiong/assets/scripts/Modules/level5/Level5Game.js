@@ -10,48 +10,43 @@
 
 cc.Class({
     extends: require('BaseLevelGame'),
-
     properties: {
-        minus: {
-            default: null,
-            type: cc.Node,
+        rabbits: {
+            default: [],
+            type: cc.Node
         },
-        plus: {
-            default: null,
-            type: cc.Node,
-        },
-        carNum: {
+        titleNode: {
             default: null,
             type: cc.Node
-        }
+        },
     },
-
 
     onLoad () {
         this.createBackAndTips();
-
+        this.isShowingAlert = false; //在显示的时候不能再出现第二个
     },
 
-    plusCarNum () {
-        let label = this.carNum.getComponent("cc.Label");
-        label.string = String(parseInt(label.string) + 1);
-        if (parseInt(label.string) > 100) {
-            label.string = '100';
-        }
-        if (parseInt(label.string) === 87) {
-            this.createAlert(null, '原来要倒过来看啊');
+    update (dt) {
+        this.judgeOnSameHorizontal();
+    },
+
+    judgeOnSameHorizontal () {
+        let count = 0;
+        this.rabbits.forEach((value, key, array) => {
+
+        });
+
+        if (count >= this.rabbits.length) {
+            this.showAlertOnce();
         }
     },
 
-    minusNum () {
-        let label = this.carNum.getComponent("cc.Label");
-        label.string = parseInt(label.string) - 1;
-        if (parseInt(label.string) < 0) {
-            label.string = '0';
+    showAlertOnce () {
+        if (this.isShowingAlert) {
+            return;
         }
-        if (parseInt(label.string) === 87) {
-            this.createAlert(null, '原来要倒过来看啊');
-        }
+        this.createAlert();
+        this.isShowingAlert = true;
     }
 
 });
