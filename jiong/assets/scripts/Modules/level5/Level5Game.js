@@ -31,9 +31,14 @@ cc.Class({
     },
 
     judgeOnSameHorizontal () {
+        debugger;
         let count = 0;
-        this.rabbits.forEach((value, key, array) => {
-
+        let minY = this.titleNode.y - this.titleNode.height * 0.5;
+        let maxY = this.titleNode.y + this.titleNode.height * 0.5;
+        this.rabbits.forEach((rabbit, key, array) => {
+            if (rabbit.y >= minY && rabbit.y <= maxY) {
+                count++;
+            }
         });
 
         if (count >= this.rabbits.length) {
@@ -45,7 +50,7 @@ cc.Class({
         if (this.isShowingAlert) {
             return;
         }
-        this.createAlert();
+        this.createAlert(null, '你真厉害');
         this.isShowingAlert = true;
     }
 
