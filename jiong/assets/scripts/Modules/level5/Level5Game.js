@@ -31,7 +31,6 @@ cc.Class({
     },
 
     judgeOnSameHorizontal () {
-        debugger;
         let count = 0;
         let minY = this.titleNode.y - this.titleNode.height * 0.5;
         let maxY = this.titleNode.y + this.titleNode.height * 0.5;

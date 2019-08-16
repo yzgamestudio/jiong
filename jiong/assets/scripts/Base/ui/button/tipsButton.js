@@ -19,7 +19,7 @@ cc.Class({
         this.scaleAction();
     },
 
-    scaleAction: function () {
+    scaleAction () {
         let scaleAction1 = cc.scaleTo(0.5, 0.8);
         let scaleAction2 = cc.scaleTo(0.5, 1.2);
         this.action = cc.repeatForever(cc.sequence(scaleAction1, scaleAction2));
