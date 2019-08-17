@@ -20,16 +20,16 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad() {
         this.createBackAndTips();
         this.showAlertOnce = false;;
     },
 
-    start () {
+    start() {
 
     },
 
-    update (dt) {
+    update(dt) {
         let isCoincide = this.judgeCoincide();
         if (isCoincide && !this.showAlertOnce) {
             this.createAlert(null, '气泡放在一起最大了');
@@ -37,8 +37,7 @@ cc.Class({
         }
     },
 
-    judgeCoincide () {
-        debugger;
+    judgeCoincide() {
         let isCoincide = true;
         for (let i = 0; i < this.pubbles.length; i++) {
             let pubble = this.pubbles[i];
@@ -46,7 +45,7 @@ cc.Class({
                 let otherPubble = this.pubbles[j];
                 let vector = cc.v2(pubble.x - otherPubble.x, pubble.y - otherPubble.y);
                 console.log(vector.mag());
-                if (vector.mag() > 132) {
+                if (vector.mag() > 60) {
                     isCoincide = false;
                 }
             }
