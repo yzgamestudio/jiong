@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3290167644132362,
-      "y": 0.3290167644132362,
+      "x": 0.684407796101949,
+      "y": 0.684407796101949,
       "z": 1
     },
     "_quat": {
@@ -2505,7 +2505,7 @@
     "component": "",
     "_componentId": "e0b16xFYnhHCLFRHe3KAXqY",
     "handler": "loadLevel",
-    "customEventData": "5"
+    "customEventData": "6"
   },
   {
     "__type__": "cc.Canvas",
