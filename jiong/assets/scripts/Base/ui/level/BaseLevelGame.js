@@ -24,14 +24,24 @@ let BaseLevel = cc.Class({
             default: null,
             type: cc.Prefab
         },
-        nextLevelName: ''
+        titlePrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+        nextLevelName: '',
+        title: ''
     },
 
     createBackAndTips () {
         this.createBack();
         this.createTips();
     },
-    
+
+    createBaseNodes () {
+        this.createBackAndTips();
+        this.createTitle();
+    },
+
     createAlert: function (e, content) {
         let alertNode = cc.instantiate(this.alert);
         this.node.addChild(alertNode);
@@ -58,6 +68,15 @@ let BaseLevel = cc.Class({
         let tipsNode = cc.instantiate(this.tipsPrefab);
         tipsNode.on('click', this.loadAd, this);
         this.node.addChild(tipsNode);
+    },
+
+    createTitle: function () {
+        debugger;
+        let titleNode = cc.instantiate(this.titlePrefab);
+        titleNode.position = cc.v2(-11, 459);
+        let titleLabel = titleNode.getComponent('cc.Label');
+        titleLabel.string = this.title;
+        this.node.addChild(titleNode);
     },
 
     loadAd: function () {
