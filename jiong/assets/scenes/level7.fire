@@ -757,8 +757,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 188,
-      "y": 408,
+      "x": 244,
+      "y": 310,
       "z": 0
     },
     "_scale": {
@@ -954,7 +954,11 @@
     "tipsPrefab": {
       "__uuid__": "c5612473-f48e-4883-9706-df76cc0c973c"
     },
+    "titlePrefab": {
+      "__uuid__": "bd68e0d9-d84c-45b3-a68b-d87a5e515f87"
+    },
     "nextLevelName": "8",
+    "title": "最大的气泡是哪个",
     "pubbles": [
       {
         "__id__": 7

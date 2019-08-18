@@ -21,7 +21,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.createBackAndTips();
+        this.createBaseNodes();
         this.showAlertOnce = false;;
     },
 
