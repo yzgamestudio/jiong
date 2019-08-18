@@ -12,34 +12,37 @@ cc.Class({
     extends: require('BaseLevelGame'),
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        square: {
+            default: null,
+            type: cc.Node
+        },
+        triangle: {
+            default: null,
+            type: cc.Node
+        }
     },
-
-    // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         this.createBaseNodes();
+        this.didShowAlertOnce = false;
+    },
+
+    update (dt) {
+        let success = this.judgeCombinationSuccess();
+        if (success && !this.didShowAlertOnce) {
+            this.createAlert(null, '组合起来就是五边形');
+            this.didShowAlertOnce = true;
+        }
+    },
+
+    judgeCombinationSuccess () {
         debugger;
+        let vector = cc.v2(this.square.x - this.triangle.x, this.square.y - this.triangle.y);
+        console.log(vector);
+        if (Math.abs(vector.x) < 5 && Math.abs(vector.y) > 75 && Math.abs(vector.y) < 78) {
+            return true;
+        }
+        return false;
+    }
 
-    },
-
-    start () {
-
-    },
-
-    // update (dt) {},
 });
