@@ -37,7 +37,6 @@ cc.Class({
         if (isSuccess) {
             this.createAlert(null, '4-4=1-1');
         }
-
     },
 
     saveInitalPosition () {
@@ -62,7 +61,5 @@ cc.Class({
         }
         return false;
     }
-
-
 
 });
