@@ -11,32 +11,36 @@
 cc.Class({
     extends: require('BaseLevelGame'),
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        part1: {
+            default: null,
+            type: cc.Node
+        },
+        part2: {
+            default: null,
+            type: cc.Node
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         this.createBaseNodes();
+        this.didShowAlertOnce = false;
     },
 
-    start () {
-
+    update (dt) {
+        let isSuccess = this.judgeSuccess();
+        if (isSuccess && !this.didShowAlertOnce) {
+            this.createAlert(null, '无穷大最大');
+        }
     },
 
-    // update (dt) {},
+    judgeSuccess () {
+        debugger;
+        let vector = this.part1.position.sub(this.part2.position);
+        if (Math.abs(vector.y) < 10 && Math.abs(Math.abs(vector.x) - this.part1.width) < 10) {
+            return true;
+        }
+        return false;
+    }
 });
