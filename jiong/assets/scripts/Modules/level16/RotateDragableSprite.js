@@ -9,38 +9,29 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
-    extends: require('BaseLevelGame'),
+    extends: require('DragableSprite'),
 
     properties: {
-        match: {
-            default: null,
-            type: cc.Node
-        },
+    },
+
+    // LIFE-CYCLE CALLBACKS:
+
+    onLoad () {
+        this.listenTouch();
     },
 
     start () {
 
     },
 
-    onLoad () {
-        this.createBaseNodes();
-        this.didShowAlertOnce = false;
-    },
-
-    update (dt) {
-        let isSuccess = this.judgeSuccess();
-        if (isSuccess && !this.didShowAlertOnce) {
-            this.createAlert(null, '1+1 = 2')
-            this.didShowAlertOnce = true;
+    movePosition: function (event) {
+        if (this.node.rotation != 12) {
+            this.node.rotation = 12;
         }
-    },
-
-    judgeSuccess () {
-        console.log(this.match.x, this.match.y);
-        if (this.match.x > - 187 && this.match.x < -111 &&
-            this.match.y > 150 && this.match.y < 255) {
-            return true;
-        }
-        return false;
+        let delta = event.getDelta();
+        this.node.x = this.node.x + delta.x;
+        this.node.y = this.node.y + delta.y;
     }
+
+
 });
