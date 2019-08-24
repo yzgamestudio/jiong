@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4451236082382462,
-      "y": 0.4451236082382462,
+      "x": 0.43478260869565216,
+      "y": 0.43478260869565216,
       "z": 1
     },
     "_quat": {
@@ -435,7 +435,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "huocai2",
+    "_name": "match",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -1583,7 +1583,9 @@
     },
     "nextLevelName": "17",
     "title": "移动一根火柴，使等式成立",
-    "match": null,
+    "match": {
+      "__id__": 10
+    },
     "_id": "3eorWbTfhJm4cgTCCNpggK"
   }
 ]
