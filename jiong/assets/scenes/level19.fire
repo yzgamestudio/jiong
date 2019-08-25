@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.47226386806596704,
-      "y": 0.47226386806596704,
+      "x": 0.5710510315670453,
+      "y": 0.5710510315670453,
       "z": 1
     },
     "_quat": {
@@ -314,7 +314,7 @@
     "_id": "a1b9kTZo5PNoWFmvBr8sAb"
   },
   {
-    "__type__": "64af1Vglb9AyZobT9baImyl",
+    "__type__": "25605GzDS1JX58Lp0OOdEdU",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -333,8 +333,8 @@
     "titlePrefab": {
       "__uuid__": "bd68e0d9-d84c-45b3-a68b-d87a5e515f87"
     },
-    "nextLevelName": "20",
-    "title": "叫醒睡着的小猪",
-    "_id": "1cOsQVwUBPvb60dBTuTXMk"
+    "nextLevelName": "11",
+    "title": "",
+    "_id": "832wHJ6CNEraOtX4VDgurj"
   }
 ]
