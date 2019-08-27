@@ -10,21 +10,39 @@
 
 cc.Class({
     extends: require('BaseLevelGame'),
-
-
     properties: {
+        mother: {
+            default: null,
+            type: cc.Node,
+        },
+        son: {
+            default: null,
+            type: cc.Node
+        },
+        bg: {
+            default: null,
+            type: cc.Node
+        }
     },
 
     onLoad () {
         this.createBaseNodes();
         this.didShowAlertOnce = false;
+        this.bg.on(cc.Node.EventType.TOUCH_START, function (event) {
+            let isSuccess = this.judgeSuccess(event);
+            if (isSuccess) {
+                this.createAlert(null, "老婆孩子一起救");
+            }
+        }, this);
+
     },
 
     start () {
-        
-    },
-
-    update (dt) {
 
     },
+
+    judgeSuccess (event) {
+        // 没有模拟器暂时不实现
+        return false;
+    }
 });
