@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "mario_walk",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.26666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "3994d720-aead-45ba-8c1f-9e843dffce44"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "814648c9-e802-4331-9311-30e371d8e5d4"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "f9e77ae5-7999-4b04-b1a5-e131787607d9"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "18d92d96-3a19-4f06-9428-a7e382ef27f2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
