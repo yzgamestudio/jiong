@@ -9,10 +9,9 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 cc.Class({
-    extends: cc.Component,
-
+    extends: require('BaseLevelGame'),
     properties: {
-        wall: {
+        mario: {
             default: null,
             type: cc.Node
         }
@@ -21,33 +20,26 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.saveInitalPosition();
+        this.didShowAlertOnce = false;
 
     },
 
     update (dt) {
-        // if (this.y != this.wall.y) {
-        //     this.wall.y = this.y;
-        // }
-        // if (this.x > this.wall.y) {
-        //     this.wall.x = this.x;
-        // }
+        if (this.isSuccess() && !this.didShowAlertOnce) {
+            this.didShowAlertOnce = true;
+            this.createAlert(null, 'good job');
+        }
     },
 
-    onEnable: function () {
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
-    },
 
-    onDisable: function () {
-        cc.director.getCollisionManager().enabled = false;
-        cc.director.getCollisionManager().enabledDebugDraw = false;
-    },
-
-    saveInitalPosition () {
-        this.x = this.wall.x;
-        this.y = this.wall.y;
-    },
+    isSuccess () {
+        if (this.mario.x > this.node.x + this.node.width * 0.5) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 });
