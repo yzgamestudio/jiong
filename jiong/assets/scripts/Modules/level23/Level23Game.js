@@ -18,27 +18,23 @@ cc.Class({
             type: cc.Node,
         },
 
+
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.arrow.callback = function (arrow, other) {
-            other.destroy();
-        };
-    },
 
-    onEnable: function () {
-        cc.director.getCollisionManager().enabled = true;
-    },
-
-    onDisable: function () {
-        cc.director.getCollisionManager().enabled = false;
     },
 
     start () {
 
     },
 
-    // update (dt) {},
+    shootArrow () {
+        let arrowScript = this.arrow.getComponent("Arrow");
+        arrowScript.shoot();
+    }
+
+
 });

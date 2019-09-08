@@ -19,8 +19,6 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        let moveToAction = cc.moveTo(2, cc.v2(this.node.x, - this.node.parent.height / 2 - this.node.height));
-        this.node.runAction(moveToAction);
     },
 
     start () {
@@ -28,4 +26,10 @@ cc.Class({
     },
 
     update (dt) { },
+
+    drop () {
+        let moveToAction = cc.moveTo(2, cc.v2(this.node.x, - this.node.parent.height / 2 - this.node.height));
+        this.node.runAction(moveToAction);
+    },
+}
 });

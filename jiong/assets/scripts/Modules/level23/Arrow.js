@@ -18,8 +18,26 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        let moveToAction = cc.moveTo(2, cc.v2(this.node.x, this.node.parent.height / 2 + this.node.height));
-        this.node.runAction(moveToAction);
+
+    },
+
+    shoot () {
+        if (!this.didShoot) {
+            let moveToAction = cc.moveTo(2, cc.v2(this.node.x, this.node.parent.height / 2 + this.node.height));
+            this.node.runAction(moveToAction);
+            this.didShoot = true;
+        }
+    },
+
+    onEnable: function () {
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+
+    },
+
+    onDisable: function () {
+        cc.director.getCollisionManager().enabled = false;
+        cc.director.getCollisionManager().enabledDebugDraw = false;
 
     },
 
@@ -33,9 +51,8 @@ cc.Class({
 
     onCollisionEnter: function (other, self) {
         if (cc.Intersection.rectRect(self.world.aabb, other.world.aabb)) {
-            if (this.callback) {
-                this.callback(this, other);
-            }
+            let blinkAction = cc.blink(2, 10);
+            other.node.runAction(blinkAction);
         }
 
     }
